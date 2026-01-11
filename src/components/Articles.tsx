@@ -41,12 +41,7 @@ export default function Articles() {
           <h2 className="flex flex-col md:flex-row md:items-center text-[36px] md:text-[50px] font-[1000] leading-none tracking-tighter mb-6 uppercase italic">
             <div className="flex items-center select-none justify-center md:justify-start">
               <span className="text-[#000000]">FATA</span>
-              <div className="flex items-center justify-center mx-[1px] md:mx-[3px]">
-                <Activity
-                  strokeWidth={5}
-                  className="w-9 h-9 md:w-[60px] md:h-[60px] text-[#E91E63] transform rotate-[-8deg] animate-pulse"
-                />
-              </div>
+         
               <span className="text-[#E91E63]">LITY</span>
             </div>
 
