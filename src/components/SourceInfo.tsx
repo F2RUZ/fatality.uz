@@ -64,23 +64,7 @@ export default function SourceInfo() {
           </div>
         </div>
 
-        {/* COPYRIGHT VA SERTIFIKAT */}
-        <div className="mt-24 pt-10 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8 text-[#000000]/40 text-[10px] font-black uppercase tracking-[3px]">
-          <div className="text-center md:text-left">
-            <p>© 2026 FATALITY SLIMMING COMPLEX.</p>
-            <p className="mt-1 opacity-50">BARCHA HUQUQLAR HIMOYALANGAN.</p>
-          </div>
-
-          <div className="flex items-center gap-10">
-            <span className="flex items-center gap-2 italic">
-              <span className="w-2.5 h-2.5 bg-green-500 rounded-full animate-ping" />
-              Sertifikatlangan mahsulot
-            </span>
-            <span className="text-white bg-[#000000] px-4 py-1.5 rounded-lg font-[1000] italic">
-              18+
-            </span>
-          </div>
-        </div>
+   
       </div>
 
       {/* MODAL */}

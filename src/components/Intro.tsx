@@ -78,7 +78,7 @@ export default function Intro() {
               {/* Orqa fon (Yengil pushti fon) */}
               <div className="w-full h-full bg-pink-50/50 rounded-[35px] overflow-hidden relative border border-pink-100 shadow-inner">
                 <Image
-                  src="/fitness-bg.jpg" // Sport yoki fitnes mavzusidagi fon
+                  src="/intro.png" // Sport yoki fitnes mavzusidagi fon
                   alt="Fatality Slimming"
                   fill
                   className="object-cover"
@@ -90,7 +90,7 @@ export default function Intro() {
               <div className="absolute -bottom-4 -left-2 md:-left-8 z-20 w-[160px] md:w-[240px] drop-shadow-[0_20px_40px_rgba(233,30,99,0.3)] transition-transform hover:scale-105 duration-500">
                 <div className="relative aspect-[0.8/1] rounded-[25px] border-[4px] border-white overflow-hidden shadow-2xl bg-white">
                   <Image
-                    src="/fatality-bottle.png" // Siz yuborgan qora idish rasmi
+                    src="/intro2.png" // Siz yuborgan qora idish rasmi
                     alt="Fatality Bottle"
                     fill
                     className="object-contain p-2"

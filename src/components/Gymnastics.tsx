@@ -7,19 +7,19 @@ export default function Gymnastics() {
     {
       title: "ERITISH",
       subtitle: "YOG' QATLAMLARI",
-      imgSrc: "/fat-burn-result.png", // Ozish jarayonini ifodalovchi rasm
+      imgSrc: "/eritish.png", // Ozish jarayonini ifodalovchi rasm
       color: "from-pink-50 to-pink-100",
     },
     {
       title: "NAZORAT",
       subtitle: "ISHTAHA ME'YORI",
-      imgSrc: "/appetite-result.png", // Sog'lom ovqatlanish yoki nazorat rasmi
+      imgSrc: "/nazorat.png", // Sog'lom ovqatlanish yoki nazorat rasmi
       color: "from-slate-100 to-slate-200",
     },
     {
       title: "TONUS",
       subtitle: "MUSHAKLAR KUCHI",
-      imgSrc: "/muscle-result.png", // Fitnes natijasi rasmi
+      imgSrc: "/tonus.png", // Fitnes natijasi rasmi
       color: "from-pink-100 to-pink-200",
     },
   ];

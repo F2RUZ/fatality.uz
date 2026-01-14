@@ -80,7 +80,7 @@ export default function Usage() {
         <div className="w-full md:w-1/2 relative">
           <div className="relative h-[480px] md:h-[620px] w-full rounded-[45px] overflow-hidden shadow-2xl border-[6px] border-pink-50">
             <Image
-              src="/usage-fatality.jpg" // Sport bilan shug'ullanayotgan yoki sog'lom ayol rasmi
+              src="/right.png" // Sport bilan shug'ullanayotgan yoki sog'lom ayol rasmi
               alt="Fatality Lifestyle"
               fill
               className="object-cover transition-transform duration-1000 hover:scale-110"

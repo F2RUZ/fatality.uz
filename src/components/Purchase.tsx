@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { Activity } from "lucide-react";
 
 export default function Purchase() {
@@ -69,17 +68,13 @@ export default function Purchase() {
   ];
 
   return (
-    <section className="relative w-full py-16 bg-gradient-to-b from-white via-pink-50/20 to-white overflow-hidden">
+    <section className="relative w-full py-4 bg-gradient-to-b from-white via-pink-50/20 to-white overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-4 relative z-10">
         {/* TEPA QISMDAGI 3 TA KARTA */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-28">
           {cards.map((card, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.2 }}
               className="bg-white/90 backdrop-blur-md rounded-[40px] p-10 shadow-[0_15px_45px_rgba(233,30,99,0.05)] border border-pink-50 hover:border-[#E91E63]/30 hover:shadow-[0_30px_60px_rgba(233,30,99,0.1)] transition-all duration-500 group"
             >
               <div className="mb-8 transform group-hover:scale-110 group-hover:rotate-[-5deg] transition-transform duration-500">
@@ -91,23 +86,16 @@ export default function Purchase() {
               <p className="text-slate-500 text-[13px] leading-relaxed font-bold uppercase opacity-80">
                 {card.desc}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        {/* LOGO QISMI: FATALITY (KATTAROQ VERSIYADA) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          className="flex flex-col items-center text-center space-y-8 mb-20"
-        >
+        {/* LOGO QISMI: FATALITY */}
+        <div className="flex flex-col items-center text-center space-y-8 mb-20">
           <div className="flex items-center select-none uppercase">
             <span className="text-5xl md:text-[90px] font-[1000] italic tracking-tighter text-[#000000] leading-none">
               FATA
             </span>
-
-        
-
             <span className="text-5xl md:text-[90px] font-[1000] italic tracking-tighter text-[#E91E63] leading-none">
               LITY
             </span>
@@ -118,46 +106,13 @@ export default function Purchase() {
           <p className="text-[#000000]/40 font-[1000] tracking-[8px] uppercase text-[10px] md:text-[14px] mt-2 italic">
             NATURAL SLIMMING COMPLEX
           </p>
-        </motion.div>
+        </div>
 
-        {/* O'YNAB TURUVCHI KAPSULALAR (Qora va Pushti) */}
+        {/* STATIK KAPSULALAR (Animatsiyasiz) */}
         <div className="relative h-32 flex justify-center items-center gap-16">
-          {[
-            {
-              color: "bg-[#000000]",
-              size: "w-12 h-6",
-              delay: 0,
-              rotate: "rotate-45",
-            },
-            {
-              color: "bg-[#E91E63]",
-              size: "w-14 h-7",
-              delay: 0.5,
-              rotate: "-rotate-12",
-            },
-            {
-              color: "bg-[#E91E63]/20",
-              size: "w-12 h-6",
-              delay: 1,
-              rotate: "rotate-[60deg]",
-            },
-          ].map((pill, i) => (
-            <motion.div
-              key={i}
-              animate={{
-                y: [0, -40, 0],
-                rotate: [0, 25, -25, 0],
-                scale: [1, 1.15, 1],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                delay: pill.delay,
-                ease: "easeInOut",
-              }}
-              className={`${pill.size} ${pill.color} rounded-full shadow-xl border border-white/20 ${pill.rotate} opacity-90`}
-            />
-          ))}
+          <div className="w-12 h-6 bg-[#000000] rounded-full shadow-xl border border-white/20 rotate-45 opacity-90" />
+          <div className="w-14 h-7 bg-[#E91E63] rounded-full shadow-xl border border-white/20 -rotate-12 opacity-90" />
+          <div className="w-12 h-6 bg-[#E91E63]/20 rounded-full shadow-xl border border-white/20 rotate-[60deg] opacity-90" />
         </div>
       </div>
 

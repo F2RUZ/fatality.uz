@@ -14,21 +14,21 @@ export default function Articles() {
       title: "Metabolizmni 24/7 uyg'otish",
       description:
         "Tana dam olayotganda ham yog'larni eritish siri — metabolik jarayonlarni tabiiy ingredientlar bilan tezlashtirish usullari.",
-      imgSrc: "/metabolism-blog.jpg",
+      imgSrc: "/meto.png",
       category: "Biologiya",
     },
     {
       title: "Ishtahani qanday jilovlash mumkin?",
       description:
         "Doimiy ochlik hissi va shirinlikka bo'lgan ehtiyojni kamaytirishning ilmiy asoslangan 5 ta samarali yo'li.",
-      imgSrc: "/hunger-control.jpg",
+      imgSrc: "/ishtaxa.png",
       category: "Maslahat",
     },
     {
       title: "Fatality: So'nggi zarba",
       description:
         "Nega Fatality boshqa ozdiruvchi vositalardan kuchliroq? Bizning maxsus formulamiz va uning tanaga ta'sir mexanizmi.",
-      imgSrc: "/fatality-box-blog.jpg",
+      imgSrc: "/zarba.png",
       category: "Mahsulot",
     },
   ];
@@ -63,7 +63,7 @@ export default function Articles() {
           {articles.map((article, idx) => (
             <div
               key={idx}
-              className="group relative flex flex-col h-[580px] bg-white rounded-[45px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(233,30,99,0.12)] transition-all duration-700 border border-pink-50"
+              className="group relative flex flex-col h-[480px] bg-white rounded-[45px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_80px_rgba(233,30,99,0.12)] transition-all duration-700 border border-pink-50"
             >
               {/* Rasm qismi */}
               <div className="relative h-[42%] w-full overflow-hidden">
