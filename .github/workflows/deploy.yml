@@ -1,0 +1,54 @@
+name: Deploy Fatality Landing
+
+on:
+  push:
+    branches: ["main", "master"]
+
+permissions:
+  contents: write
+  packages: write
+  actions: read
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, Linux, X64]
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+
+    steps:
+      - name: 📂 Repo-ni ko'chirib olish
+        uses: actions/checkout@v4
+
+      - name: 🟢 Node.js o'rnatish
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Kutubxonalarni o'rnatish
+        run: npm install --legacy-peer-deps
+
+      - name: 🏗️ Loyihani Build qilish
+        run: npm run build
+
+      - name: 🚀 Serverni tayyorlash va Deploy
+        run: |
+          # Fatality uchun maxsus yo'l
+          TARGET_DIR="/home/user/Projects/Euphoria/lands/fatality-landing.uz"
+          
+          # Papka o'chirilgan bo'lsa, qayta yaratish
+          mkdir -p $TARGET_DIR
+          
+          # Build natijasini tekshirish
+          if [ -d "out" ]; then
+            SOURCE_DIR="out"
+          else
+            echo "❌ Xato: 'out' papkasi topilmadi! next.config.js ni tekshiring."
+            exit 1
+          fi
+          
+          echo "Deploying to $TARGET_DIR..."
+          rm -rf $TARGET_DIR/*
+          cp -r $SOURCE_DIR/* $TARGET_DIR/
+          
+          echo "✅ Fatality muvaffaqiyatli deploy qilindi!"
