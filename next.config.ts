@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Static fayllar yaratish rejimini yoqadi
+  output: 'export', 
   images: {
-    unoptimized: true, // Static exportda rasmlar xato bermasligi uchun
+    unoptimized: true, 
   },
 };
 
