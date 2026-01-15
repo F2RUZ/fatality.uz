@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { User, Phone, X, Check } from "lucide-react";
+import { User, Phone, X, Check, AlertCircle } from "lucide-react";
 
 interface OrderModalProps {
   isOpen: boolean;
@@ -10,13 +10,11 @@ interface OrderModalProps {
 export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
   const [formData, setFormData] = useState({ name: "", phone: "" });
   const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
+    "idle" | "loading" | "success" | "error" | "limit"
   >("idle");
   const [activeField, setActiveField] = useState<"name" | "phone" | null>(null);
 
-  const API_URL = `${
-    process.env.NEXT_PUBLIC_API_URL || "https://api.example.com"
-  }/leads/`;
+  const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/leads/`;
 
   const progress =
     (formData.name.length > 2 ? 50 : 0) +
@@ -32,15 +30,9 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
     }
   }, [isOpen]);
 
-  if (!isOpen) return null;
-
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value.replace(/\D/g, "");
-
-    // Avtomatik 998 qo'shish logikasi
-    if (value.length > 0 && !value.startsWith("998")) {
-      value = "998" + value;
-    }
+    if (value.length > 0 && !value.startsWith("998")) value = "998" + value;
     value = value.slice(0, 12);
 
     let formatted = "+";
@@ -55,31 +47,42 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const digitsOnly = formData.phone.replace(/\D/g, "");
+
+    if (digitsOnly.length !== 12) return;
+
     setStatus("loading");
-    const cleanPhone = formData.phone.replace(/\D/g, "");
+
+    const payload = {
+      full_name: formData.name,
+      phone_number: `+${digitsOnly}`, // Backendga "+" bilan ketmoqda
+      product_name: "Fatality",
+    };
 
     try {
       const response = await fetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          phone: cleanPhone,
-          source: "fatality_web_site",
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
         setStatus("success");
-        setTimeout(() => onClose(), 3000);
+        setTimeout(() => onClose(), 3500);
+      } else if (response.status === 429) {
+        setStatus("limit");
       } else {
-        throw new Error("Xatolik");
+        // 400 yoki boshqa xatolar uchun
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 3000);
       }
     } catch (error) {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 3000);
     }
   };
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 z-[150] flex items-center justify-center p-4">
@@ -89,10 +92,13 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
       />
 
       <div className="relative w-full max-w-[460px] bg-white rounded-[35px] shadow-2xl overflow-hidden">
+        {/* Progress Bar */}
         <div className="absolute top-0 left-0 w-full h-1.5 bg-slate-100">
           <div
             className={`h-full transition-all duration-300 ${
-              status === "error" ? "bg-red-500" : "bg-[#E91E63]"
+              status === "limit" || status === "error"
+                ? "bg-red-500"
+                : "bg-[#E91E63]"
             }`}
             style={{ width: `${progress}%` }}
           />
@@ -101,6 +107,8 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
         <div className="p-8 md:p-12">
           {status === "success" ? (
             <SuccessView />
+          ) : status === "limit" ? (
+            <LimitView />
           ) : (
             <div>
               <div className="text-center mb-8">
@@ -109,12 +117,11 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
                   <span className="text-[#E91E63]">LITY</span>
                 </div>
                 <p className="mt-2 text-[10px] font-black uppercase tracking-[3px] text-slate-400">
-                  ARIQA QOLDIRISH
+                  ARIZA QOLDIRISH
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Ism inputi */}
                 <div
                   className={`flex items-center bg-slate-50 border-2 rounded-2xl transition-all ${
                     activeField === "name"
@@ -145,7 +152,6 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
                   />
                 </div>
 
-                {/* Telefon inputi - YANGILANGAN QISM */}
                 <div
                   className={`flex items-center bg-slate-50 border-2 rounded-2xl transition-all ${
                     activeField === "phone"
@@ -164,8 +170,8 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
                   </span>
                   <input
                     required
-                    type="tel" // Telefon klaviaturasi uchun
-                    inputMode="numeric" // Raqamli klaviatura uchun
+                    type="tel"
+                    inputMode="numeric"
                     placeholder="+998 (__) ___ __ __"
                     onFocus={() => setActiveField("phone")}
                     onBlur={() => setActiveField(null)}
@@ -194,7 +200,7 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
 
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-400 active:bg-pink-100"
+          className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-slate-50 text-slate-400"
         >
           <X size={20} />
         </button>
@@ -203,9 +209,27 @@ export default function OrderModal({ isOpen, onClose }: OrderModalProps) {
   );
 }
 
+function LimitView() {
+  return (
+    <div className="py-8 text-center animate-in fade-in zoom-in duration-300">
+      <div className="w-20 h-20 bg-red-500 rounded-3xl flex items-center justify-center text-white mx-auto mb-8 animate-bounce shadow-lg">
+        <AlertCircle size={40} strokeWidth={3} />
+      </div>
+      <h3 className="text-2xl font-[1000] text-black mb-3 uppercase italic leading-none">
+        LIMITGA ETILDINGIZ!
+      </h3>
+      <p className="text-slate-500 font-bold text-[10px] uppercase tracking-widest leading-relaxed">
+        Siz allaqachon ariza qoldirgansiz. <br /> Iltimos,{" "}
+        <span className="text-red-500">1 soatdan keyin</span> <br /> qayta
+        urinib ko'ring.
+      </p>
+    </div>
+  );
+}
+
 function SuccessView() {
   return (
-    <div className="py-8 text-center">
+    <div className="py-8 text-center animate-in fade-in zoom-in duration-300">
       <div className="w-20 h-20 bg-[#E91E63] rounded-3xl flex items-center justify-center text-white mx-auto mb-8 rotate-[-6deg] shadow-lg">
         <Check size={40} strokeWidth={4} />
       </div>

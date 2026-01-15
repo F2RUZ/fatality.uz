@@ -25,8 +25,6 @@ export default function Intro() {
                   FATA
                 </span>
 
-         
-
                 <span className="text-2xl md:text-[38px] font-[1000] italic tracking-tighter text-[#E91E63] leading-none">
                   LITY
                 </span>
@@ -34,23 +32,26 @@ export default function Intro() {
 
               <div className="mt-3 md:mt-4 space-y-1">
                 <p className="text-[#E91E63] text-[9px] md:text-[11px] font-black uppercase tracking-[3px] mb-2">
-                  Natural Slimming Complex
+                  Natural Complex
                 </p>
                 <h2 className="text-[24px] md:text-[36px] font-extrabold leading-[1.1] text-[#000000] tracking-tight">
-                  Mukammal qomat sari <br />
-                  so'nggi zarba!
+                  vazn yo‘qotishga oqilona yondashuv!
                 </h2>
               </div>
             </div>
 
             <div className="flex items-start gap-2 max-w-[440px] mb-8 border-l-2 border-[#E91E63] pl-4">
-              <p className="text-[#4A4A4A] text-[12px] md:text-[14px] leading-relaxed font-medium uppercase opacity-80">
-                Ortiqcha vazndan xalos bo'lishga ko'maklashuvchi
+              <p className="text-[#4A4A4A] text-[8px] md:text-[10px] leading-relaxed font-medium uppercase opacity-80">
+                Fatality - bu muvozanatli ovqatlanish va faol turmush tarzi
+                doirasida 
+                qo‘llab-quvvatlashga qaratilgan
                 <span className="text-[#E91E63] font-bold">
                   {" "}
-                  innovatsion formula
+                 tana vaznini kamaytirishni qo‘llab-quvvatlash uchun
+               
                 </span>
-                . Metabolizmni tezlashtiradi va ishtahani tabiiy nazorat qiladi.
+              ishlab chiqilgan biologik faol qo‘shimchadir. Mahsulot formulasi
+                almashinuv jarayonlari va umumiy salomatlikni
               </p>
             </div>
 

@@ -3,13 +3,13 @@
 export default function Features() {
   const features = [
     {
-      text: "METABOLIZMNI JADAL TEZLASHTIRISH",
+      text: "vazn nazorati",
     },
     {
-      text: "ISHTAHANI TABIIY NAZORAT QILISH",
+      text: "metabolizmni qo‘llab-quvvatlash",
     },
     {
-      text: "YOG' QATLAMLARINI ENERGIYAGA AYLANTIRISH",
+      text: "tabiiy o’simliklardan tayyorlangan",
     },
   ];
 

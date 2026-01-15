@@ -10,17 +10,17 @@ export default function Composition() {
       "ISHTAHANI SAMARALI NAZORAT QILISH",
     ],
     components: [
-      "TABIIY O'SIMLIK EKSTRAKTLARI MAJMUASI",
-      "L-KARNITIN VA ENERGETIK KOMPONENTLAR",
-      "VAMINLAR VA ANTIOKSIDANTLAR KOMBINATSIYASI",
+      "O'SIMLITABIIY O'SIMLIK EKSTRAKTLARI MAJMUASI",
+      "moychechak ekstrakti",
+      "mingbargI",
     ],
   };
 
   const formulaData = [
-    { name: "L-KARNITIN", desc: "YOG'LARNI YO'QOTISH" },
+    { name: "zubturum", desc: "ekstrakti" },
     { name: "EKSTRAKTLAR", desc: "100% TABIIY MEVA" },
-    { name: "VITAMINLAR", desc: "B, C, D KOMPLEKS" },
-    { name: "ANTIOKSIDANT", desc: "ORGANIZMNI TOZALASH" },
+    { name: "mingbarg", desc: "ekstrakti" },
+    { name: "baland andiz", desc: "ekstrakti" },
   ];
 
   return (
@@ -41,6 +41,13 @@ export default function Composition() {
             YUKSAK SAMARALI
             <span className="text-[#E91E63]"> TARKIB</span>
           </h2>
+
+          <p className="text-[12px]  italic leading-tight uppercase tracking-tighter">
+            Fatality - bu muvozanatli ovqatlanish va faol turmush tarzi
+            doirasida tana vaznini kamaytirishni qo‘llab-quvvatlash uchun ishlab
+            chiqilgan biologik faol qo‘shimchadir. Mahsulot formulasi almashinuv
+            jarayonlari va umumiy salomatlikni qo‘llab-quvvatlashga qaratilgan.
+          </p>
         </div>
 
         <div className="relative flex flex-col lg:flex-row items-center justify-between gap-12">

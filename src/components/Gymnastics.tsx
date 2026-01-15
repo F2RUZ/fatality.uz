@@ -17,8 +17,8 @@ export default function Gymnastics() {
       color: "from-slate-100 to-slate-200",
     },
     {
-      title: "TONUS",
-      subtitle: "MUSHAKLAR KUCHI",
+      title: "tashqi ko‘rinishi",
+      subtitle: "va salomatligi haqida qayg‘uradiganlar",
       imgSrc: "/tonus.png", // Fitnes natijasi rasmi
       color: "from-pink-100 to-pink-200",
     },
