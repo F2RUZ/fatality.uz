@@ -216,7 +216,7 @@ function LimitView() {
         <AlertCircle size={40} strokeWidth={3} />
       </div>
       <h3 className="text-2xl font-[1000] text-black mb-3 uppercase italic leading-none">
-        LIMITGA ETILDINGIZ!
+        LIMITGA YETDINGIZ!
       </h3>
       <p className="text-slate-500 font-bold text-[10px] uppercase tracking-widest leading-relaxed">
         Siz allaqachon ariza qoldirgansiz. <br /> Iltimos,{" "}
