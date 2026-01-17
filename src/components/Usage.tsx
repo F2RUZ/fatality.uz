@@ -89,7 +89,7 @@ export default function Usage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
             <div className="absolute bottom-10 left-8 right-8">
-              <p className="text-white font-[1000] italic text-2xl md:text-3xl leading-tight uppercase tracking-tighter">
+              <p className="text-white font-[1000] italic text-xl md:text-3xl leading-tight uppercase tracking-tighter">
                 QOMATINGIZNI <br />{" "}
                 <span className="text-[#E91E63]">YANGIDAN</span> <br /> KASHF
                 ETING

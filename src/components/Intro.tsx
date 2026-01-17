@@ -88,7 +88,7 @@ export default function Intro() {
               </div>
 
               {/* Mahsulot idishi (Bottle) */}
-              <div className="absolute -bottom-4 -left-2 md:-left-8 z-20 w-[160px] md:w-[240px] drop-shadow-[0_20px_40px_rgba(233,30,99,0.3)] transition-transform hover:scale-105 duration-500">
+              <div className="absolute -bottom-4 -left-2 md:-left-8 z-20 w-[160px] md:w-[200px] drop-shadow-[0_20px_40px_rgba(233,30,99,0.3)] transition-transform hover:scale-105 duration-500">
                 <div className="relative aspect-[0.8/1] rounded-[25px] border-[4px] border-white overflow-hidden shadow-2xl bg-white">
                   <Image
                     src="/intro2.png" // Siz yuborgan qora idish rasmi

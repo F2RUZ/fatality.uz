@@ -97,14 +97,7 @@ export default function RootLayout({
       >
         <main>{children}</main>
 
-        {/* 3. GLOBAL DISCLAIMER (Fatality ranglarida) */}
-        <div className="fixed bottom-0 left-0 w-full border-t border-slate-100 py-3 bg-white/90 backdrop-blur-md z-[9999]">
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-slate-400 font-[1000] text-[10px] md:text-[11px] tracking-[2.5px] uppercase italic">
-              BIOLOGIK FAOL QO'SHIMCHA. DORI VOSITASI HISOBLANMAYDI.
-            </p>
-          </div>
-        </div>
+      
       </body>
     </html>
   );

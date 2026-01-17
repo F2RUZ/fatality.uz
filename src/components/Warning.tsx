@@ -15,6 +15,8 @@ const Warning = () => {
         <p className="text-[#000000] font-[1000] text-[12px] md:text-[16px] lg:text-[19px] tracking-[2px] md:tracking-[4px] uppercase italic text-center leading-none">
           BFQ. DORI VOSITASI{" "}
           <span className="text-[#E91E63]">HISOBLANMAYDI.</span>
+          <br />
+          <span className="text-[8px]">Qabul qilishdan avval shifokor bilan maslahatlashing</span>
         </p>
 
         {/* O'ng tomondagi dinamik puls */}
